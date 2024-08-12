@@ -1,4 +1,5 @@
 package org.example;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ public class PhoneBook {
         phoneBook.put(name, phoneNumber);
         return phoneBook.size();
     }
+
     public String findByNumber(String phoneNumber) {
         return phoneBook.entrySet()
                 .stream()
@@ -28,7 +30,8 @@ public class PhoneBook {
                 .findFirst()
                 .orElse(null);
     }
+
     public String findByName(String name) {
-        return null;
+        return phoneBook.get(name);
     }
 }
