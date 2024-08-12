@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 public class PhoneBookTest {
-    PhoneBook phoneBook = new PhoneBook();
+    PhoneBook phoneBook = PhoneBook.getInstance();
 
     @ParameterizedTest
     @MethodSource("sourceForAdd")
@@ -21,7 +21,8 @@ public class PhoneBookTest {
     public static Stream<Arguments> sourceForAdd() {
         return Stream.of(Arguments.of("Slava", "+7 999 999 99 99", 1),
                 Arguments.of("Vyacheslav", "+7 999 999 99 98", 2),
-                Arguments.of("Slava", "+7 999 999 99 97", 3)
+                Arguments.of("Slava", "+7 999 999 99 97", 2),
+                Arguments.of("Test", "+7 111 111 11 11", 3)
         );
     }
 }
