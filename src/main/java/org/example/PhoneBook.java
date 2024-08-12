@@ -14,13 +14,18 @@ public class PhoneBook {
     }
 
     public int add(String name, String phoneNumber) {
-        if (phoneBook.containsKey(name)) {
-            return phoneBook.size();
+        if (!phoneBook.containsKey(name)) {
+            phoneBook.put(name, phoneNumber);
         }
         phoneBook.put(name, phoneNumber);
         return phoneBook.size();
     }
     public String findByNumber(String phoneNumber) {
-        return null;
+        return phoneBook.entrySet()
+                .stream()
+                .filter(e -> e.getValue().equals(phoneNumber))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
     }
 }
