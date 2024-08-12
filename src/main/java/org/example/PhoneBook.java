@@ -20,4 +20,7 @@ public class PhoneBook {
         phoneBook.put(name, phoneNumber);
         return phoneBook.size();
     }
+    public String findByNumber(String phoneNumber) {
+        return null;
+    }
 }
